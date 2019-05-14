@@ -273,13 +273,14 @@ if choice:
             gam_input = "~/bin/gam/gam update user "+existing_email+" org '/Faculty_Staff'"
             result_1 = os.popen(gam_input).read()
             print(result_1)
-        # else:
-        #     question = str("REMOVED staff member?")
-        #     choice = query_yes_no(question, default="yes")
-        #     if choice:
-        #         gam_input = "~/bin/gam/gam update user "+existing_email+" org '/Swanton-All/Swan Staff-All/Swan Suspended-Staff'"
-        #         result_1 = os.popen(gam_input).read()
-        #         print(result_1)
+
+        question = str("REMOVED staff member?")
+        choice = query_yes_no(question, default="yes")
+        if choice:
+            gam_input = "~/bin/gam/gam update user "+existing_email+" org '/Faculty_Staff/Suspended_Faculty_Staff'"
+            result_1 = os.popen(gam_input).read()
+            print(result_1)
+
         else:
             for key in grade_book:
                 question = str("Grade: "+str(key)+" Grad Year: "+str(grade_book[key])+" ?")
