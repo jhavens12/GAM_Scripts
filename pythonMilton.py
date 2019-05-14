@@ -30,7 +30,7 @@ def query_yes_no(question, default="yes"):
             sys.stdout.write("Please respond with 'yes' or 'no' "
                              "(or 'y' or 'n').\n")
 
-print("Milton v1.0")
+print("Milton v1.1 5/14/19")
 print("Starting...")
 result_test = os.popen("~/bin/gam/gam info user jhavens").read()
 
