@@ -251,7 +251,7 @@ if 'Modify Existing User' in choice1:
 
     if 'OU Move' in choice:
         print("OU CHANGES BOI")
-        options = ['General Staff','Student']
+        options = ['General Staff','Student','Other']
         sub_choice = multi_choice("What type of user?",options)
         if 'General Staff' in sub_choice:
             options = ['Active','Deactivated']
@@ -276,6 +276,15 @@ if 'Modify Existing User' in choice1:
             gam_input = "~/bin/gam/gam update user "+existing_email+" org '/Students/GY20"+str(cur_grad_year)+"'"
             result_1 = os.popen(gam_input).read()
             print(result_1)
+
+        if 'Other' in sub_choice:
+            options = ['/Faculty_Staff/IT\ Admins','/Faculty_Staff/Power\ Users','/Faculty_Staff/Service\ Accounts','/Faculty_Staff/Specialty\ Accounts',\
+            '/Faculty_Staff/Substitutes','/Faculty_Staff/Student_Teachers','/Students/Internet\ Restriction','/Test']
+            sub_sub_choice = multi_choice("Which OU?",options)
+            gam_input = "~/bin/gam/gam update user "+existing_email+" org '"+str(sub_sub_choice[0])+"'"
+            result_1 = os.popen(gam_input).read()
+            print(result_1)
+
         print("********************")
 
     if 'Suspend' in choice:
